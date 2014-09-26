@@ -1,0 +1,19 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+group = 'groovy-helpers'
+
+dependencies {
+    compile localGroovy()
+    compile gradleApi()
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://mvn-repo.go2uti.com:8080/archiva/repository/internal/") {
+                authentication(userName: mavenUser, password: mavenPass) /* define mavenUser and mavenPass in ~/.gradle/gradle.properties */
+            }
+        }
+    }
+}
