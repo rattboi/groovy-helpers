@@ -3,9 +3,14 @@ apply plugin: 'maven'
 
 group = 'groovy-helpers'
 
+repositories {
+    jcenter()
+}
+
 dependencies {
     compile localGroovy()
     compile gradleApi()
+    compile group: 'commons-net', name: 'commons-net', version: '2.0'
 }
 
 uploadArchives {
